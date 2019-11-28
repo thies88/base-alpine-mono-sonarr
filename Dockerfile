@@ -13,11 +13,11 @@ LABEL maintainer="Thies88"
 ENV XDG_CONFIG_HOME="/config/xdg"
 ENV SONARR_BRANCH="master"
 
-RUN apk update \
-echo "**** install packages ****" \
-apk add --no-cache tar curl jq && \
+RUN apk update && \
+echo "**** install packages ****" && \
+apk add --no-cache tar curl && \
 echo "**** install sonarr packages ****" && \
-apk add --no-cache libmediainfo && \
+apk add --no-cache jq libmediainfo && \
 echo "**** install sonarr ****" && \
  mkdir -p /opt/NzbDrone && \
   if [ -z ${SONARR_VERSION+x} ]; then \
