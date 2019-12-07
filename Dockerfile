@@ -17,7 +17,7 @@ RUN apk update && \
 echo "**** install packages ****" && \
 apk add --no-cache tar curl && \
 echo "**** install sonarr packages ****" && \
-apk add --no-cache jq libmediainfo && \
+apk add --no-cache jq libmediainfo sqlite && \
 echo "**** install sonarr ****" && \
  mkdir -p /opt/NzbDrone && \
   if [ -z ${SONARR_VERSION+x} ]; then \
@@ -31,7 +31,7 @@ echo "**** install sonarr ****" && \
 	/tmp/sonarr.tar.gz -C \
 	/opt/NzbDrone --strip-components=1 && \
  echo "**** clean up ****" && \
- apk del tar curl && \
+ apk del tar && \
  rm -rf \
 	/tmp/* \
 	/var/lib/apt/lists/* \
